@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Companion</title>
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Weather Companion</h1>
+</header>
+<div class="body">
+    <form action="/geocoding" method="post">
+    <div class = "entry">
+        <% if(locals.weather){ %>
+            <input type="input" class="form__field" placeholder="<%= weather.name %>" name="location" required />
+        <% }else{ %>
+            <input type="input" class="form__field" placeholder="Enter Your Location" name="location" required />
+        <% } %>    
+        <button type="submit" class="form__button">Check Weather</button>
+    </div>
+    </form>
+    
+    <% if(locals.weather) { %>
+        <div class="card-container">
+        <div class="card">
+            <div class="card-1">
+                <a><%= Math.round(weather.main.temp - 273) %>°</a>
+                <h2>Celcius</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-2">
+                <% var icon_link =  `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png` %>
+                <img src="<%= icon_link %>" alt="weather-icon" width="160" height="160">
+                <h2><%= weather.weather[0].description %></h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-1">
+                <a><%= weather.main.humidity %></a>
+                <h2>Humidity</h2>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-3">
+                <div>
+                <a><%= weather.wind.speed %> m/s</a>
+                <a><%= weather.wind.deg %> °</a>
+                </div>
+                <h2>Wind</h2>
+            </div>
+        </div>
+    </div>
+    <div class="advice">
+        <h2>Advice</h2>
+        <p > <%= advice %></p>
+    </div>
+    <% }%>
+    
+</div>
+
+
+
+<% if(locals.alert) {%>
+    <%= alert %>
+    <% } %>
+<footer>
+    <p>powered by</p>
+    <img src="images/logo_white_cropped.png" width="140" height="60">
+</footer>
+</body>
+</html>
