@@ -1,5 +1,4 @@
-title: "Weather Companion - Smart Weather & Lifestyle Advisor",
-description: `Weather Companion is a web-based application that not only provides real-time weather updates but also gives personalized lifestyle advice based on current weather conditions. It aims to be more than just a forecast tool—it's your everyday weather-aware assistant.
+Weather Companion is a web-based application that not only provides real-time weather updates but also gives personalized lifestyle advice based on current weather conditions. It aims to be more than just a forecast tool—it's your everyday weather-aware assistant.
 
 **Features**
 - Real-time weather updates using OpenWeatherMap API
@@ -32,4 +31,4 @@ Users enter a city name into the search bar. The backend fetches weather data fr
 - EJS
 - dotenv (for environment variables)
 
-This project combines practical web development with real-world API integration to deliver a useful and user-friendly weather advisory platform.`,
+This project combines practical web development with real-world API integration to deliver a useful and user-friendly weather advisory platform.
